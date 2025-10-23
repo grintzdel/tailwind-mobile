@@ -1,5 +1,15 @@
+import React from "react";
+
+import {CategoriesSection} from "@/modules/app/react/components/categories-section";
+import {ForYouSection} from "@/modules/app/react/components/for-you-section";
+import {PopularSection} from "@/modules/app/react/components/popular-section";
+
 export default function HomePage() {
     return (
-        <h1>Hello the from the home page !</h1>
+        <React.Fragment>
+            <CategoriesSection/>
+            <ForYouSection/>
+            <PopularSection/>
+        </React.Fragment>
     )
 }
