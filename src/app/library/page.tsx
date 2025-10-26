@@ -1,4 +1,4 @@
-import LibraryPage from "@/features/library/page";
+import LibraryPage from "@/features/library/library.page";
 
 export default function Library() {
     return (
