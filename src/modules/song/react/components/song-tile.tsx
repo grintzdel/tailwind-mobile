@@ -5,21 +5,17 @@ import Image from "next/image";
 import {MdPlayArrow} from "react-icons/md";
 
 import {ButtonIcon} from "@/ui/button";
-import {SongDomainModel} from "@/modules/song/core/model/song.domain-model";
 import {formatDuration} from "@/modules/song/react/utils/duration.utils";
+import {SongListItem} from "@/modules/shared/react/components/song-list-section";
 
 type DisplayMode = 'tag' | 'artist';
 
-type SongTileProps = {
-    img: string;
-    title: string;
-    tag?: SongDomainModel.Tag;
-    artist?: string;
+type SongTileProps = SongListItem & {
     displayMode: DisplayMode;
-    duration?: number;
 }
 
 export const SongTile: React.FC<SongTileProps> = ({
+                                                      id,
                                                       img,
                                                       title,
                                                       tag,
@@ -46,7 +42,7 @@ export const SongTile: React.FC<SongTileProps> = ({
                 {duration && (
                     <span className="font-light text-white/50 text-sm">{formatDuration(duration)}</span>
                 )}
-                <ButtonIcon icon={MdPlayArrow} className="h-7 w-8" variant="sm"/>
+                <ButtonIcon icon={MdPlayArrow} href={`/song/${id}`} className="h-7 w-8" variant="sm"/>
             </div>
         </div>
     )

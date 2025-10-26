@@ -5,16 +5,14 @@ import {SongDomainModel} from "@/modules/song/core/model/song.domain-model";
 
 type DisplayMode = 'tag' | 'artist';
 
-export type SongItem = {
-    img: string;
-    title: string;
+export type SongListItem = Pick<SongDomainModel.SongOverviewDto, 'id' | 'img' | 'title'> & {
+    duration?: number;
     tag?: SongDomainModel.Tag;
     artist?: string;
-    duration?: number;
 }
 
 type SongListSectionProps = {
-    songs: SongItem[];
+    songs: SongListItem[];
     displayMode: DisplayMode;
 }
 
@@ -24,9 +22,10 @@ export const SongListSection: React.FC<SongListSectionProps> = ({
                                                                 }: SongListSectionProps): React.JSX.Element => {
     return (
         <div className="flex flex-col gap-3 px-5">
-            {songs.map((song, index) => (
+            {songs.map((song) => (
                 <SongTile
-                    key={index}
+                    key={song.id}
+                    id={song.id}
                     img={song.img}
                     title={song.title}
                     tag={song.tag}
