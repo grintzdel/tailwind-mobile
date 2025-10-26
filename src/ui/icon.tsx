@@ -4,18 +4,24 @@ import {IconType} from "react-icons";
 
 import {GRADIENT_BG, GLASS_EFFECT} from '@/modules/shared/constants/style.constant';
 
+type IconWithCircleVariants = 'lg' | 'sm'
+
 type IconWithCircleProps = {
     icon: IconType;
     className?: string;
+    variant?: IconWithCircleVariants
 }
 
 export const IconWithCircle: React.FC<IconWithCircleProps> = ({
                                                                   icon: Icon,
-                                                                  className
+                                                                  className,
+                                                                  variant = 'lg'
                                                               }: IconWithCircleProps): React.JSX.Element => {
+    const padding = variant === 'lg' ? 'p-4' : 'p-2';
+
     return (
         <div
-            className={`group relative flex justify-center content-center items-center py-3 px-3 w-auto max-h-fit rounded-full ${GLASS_EFFECT.container}`}>
+            className={`group relative flex justify-center content-center items-center ${padding} w-auto max-h-fit rounded-full ${GLASS_EFFECT.container}`}>
             <div
                 className="absolute inset-0 rounded-full p-[1px] transition-opacity duration-300"
                 style={{
