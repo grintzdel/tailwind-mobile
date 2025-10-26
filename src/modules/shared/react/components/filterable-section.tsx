@@ -3,7 +3,6 @@
 import React from "react";
 
 import {Button} from "@/ui/button";
-
 import {ScrollableHorizontalContainer} from "@/modules/shared/react/components/scrollable-horizontal-container";
 
 export type FilterableItem = {

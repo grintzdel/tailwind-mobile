@@ -1,17 +1,18 @@
 import React from "react";
 
-type SectionProps = { title?: string;
+type SectionProps = {
+    title?: string;
     titleSize?: 'xl' | '2xl' | '3xl';
     headerAction?: React.ReactNode;
     children?: Readonly<React.ReactNode>;
 }
 
 export const Section: React.FC<SectionProps> = ({
-    title,
-    titleSize = 'xl',
-    headerAction,
-    children
-}: SectionProps): React.JSX.Element => {
+                                                    title,
+                                                    titleSize = 'xl',
+                                                    headerAction,
+                                                    children
+                                                }: SectionProps): React.JSX.Element => {
     const titleSizeClasses = {
         'xl': 'text-xl',
         '2xl': 'text-2xl',
