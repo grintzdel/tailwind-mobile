@@ -11,7 +11,7 @@ const voidOnClick = (): void => {
 
 export const CategoriesSection: React.FC = (): React.JSX.Element => {
     return (
-        <section className="flex flex-col gap-3 py-8">
+        <section className="flex flex-col gap-3">
             <h1 className="px-5 font-bold text-3xl">Hello, Alex</h1>
             <ScrollableHorizontalContainer>
                 <Button text="All" onClick={voidOnClick} variant="primary"/>

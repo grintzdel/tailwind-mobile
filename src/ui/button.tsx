@@ -41,7 +41,7 @@ export const Button: React.FC<ButtonProps> = ({
         <button
             onClick={onClick}
             className={`
-        group relative px-5 py-3 rounded-full
+        group relative px-5 py-2 rounded-full max-w-fit
         font-medium text-white text-lg
         transition-all duration-300 
         ${isActive ? 'bg-gradient-to-br from-[#8031f0] to-[#c231ed]' : 'bg-transparent backdrop-blur-sm'}
@@ -89,7 +89,7 @@ export const Button: React.FC<ButtonProps> = ({
                 />
             )}
 
-            <span className="relative z-10 whitespace-nowrap">
+            <span className="relative z-10 whitespace-nowrap text-sm">
         {text}
       </span>
         </button>

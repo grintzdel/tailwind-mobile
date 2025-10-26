@@ -34,7 +34,7 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} antialiased h-dvh`}
         >
         <Header/>
-        <main>
+        <main className="flex flex-col gap-4">
             {children}
         </main>
         <Footer/>
