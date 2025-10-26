@@ -4,6 +4,7 @@ import React from "react";
 
 import {Button} from "@/ui/button";
 import {ScrollableHorizontalContainer} from "@/modules/app/react/components/components/scrollable-horizontal-container";
+import {Section} from "@/ui/section";
 
 const voidOnClick = (): void => {
     return
@@ -11,8 +12,7 @@ const voidOnClick = (): void => {
 
 export const CategoriesSection: React.FC = (): React.JSX.Element => {
     return (
-        <section className="flex flex-col gap-3">
-            <h1 className="px-5 font-bold text-3xl">Hello, Alex</h1>
+        <Section title="Hello, Alex" titleSize="3xl">
             <ScrollableHorizontalContainer>
                 <Button text="All" onClick={voidOnClick} variant="primary"/>
                 <Button text="New Artist" onClick={voidOnClick} variant="primary"/>
@@ -20,6 +20,6 @@ export const CategoriesSection: React.FC = (): React.JSX.Element => {
                 <Button text="Editor's Picks" onClick={voidOnClick} variant="primary"/>
                 <Button text="Random Button" onClick={voidOnClick} variant="primary"/>
             </ScrollableHorizontalContainer>
-        </section>
+        </Section>
     )
 }
