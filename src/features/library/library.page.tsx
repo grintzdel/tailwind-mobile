@@ -1,9 +1,11 @@
 import React from "react";
 
+import {LibraryFiltersSection} from "@/modules/library/react/components/library-filters.section";
+
 export default function LibraryPage() {
     return (
         <React.Fragment>
-            <h1>Hello from the library page</h1>
+            <LibraryFiltersSection/>
         </React.Fragment>
     )
 }
