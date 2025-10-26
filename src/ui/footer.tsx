@@ -66,8 +66,8 @@ export const Footer: React.FC<FooterProps> = ({activePage = 'home'}): React.JSX.
                 />
                 <FooterLink
                     icon={CiMusicNote1}
-                    href="/songs"
-                    isActive={activePage === 'songs'}
+                    href="/library"
+                    isActive={activePage === 'library'}
                 />
                 <FooterLink
                     icon={CiSettings}
