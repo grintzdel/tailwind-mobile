@@ -27,7 +27,7 @@ export const Button: React.FC<ButtonProps> = ({
                 onClick={onClick}
                 className={`
           flex flex-row gap-1 justify-center items-center
-          font-light text-white/70 text-sm
+          font-light text-white/50 text-sm
           transition-all duration-300
           ${className}
         `}
@@ -43,7 +43,7 @@ export const Button: React.FC<ButtonProps> = ({
             onClick={onClick}
             className={`
         group relative px-5 py-2 rounded-full max-w-fit
-        font-medium text-white text-lg
+        font-medium text-lg
         transition-all duration-300
         ${isActive ? GRADIENT_BG.className : GLASS_EFFECT.container}
         ${className}
