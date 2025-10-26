@@ -4,8 +4,9 @@ import Image from "next/image";
 
 import {MdPlayArrow} from "react-icons/md";
 
-import {SongDomainModel} from "@/modules/song/core/model/song.domain-model";
 import {IconWithCircle} from "@/ui/icon";
+import {SongDomainModel} from "@/modules/song/core/model/song.domain-model";
+import {formatDuration} from "@/modules/song/react/utils/duration.utils";
 
 type DisplayMode = 'tag' | 'artist';
 
@@ -15,6 +16,7 @@ type SongTileProps = {
     tag?: SongDomainModel.Tag;
     artist?: string;
     displayMode: DisplayMode;
+    duration?: number;
 }
 
 export const SongTile: React.FC<SongTileProps> = ({
@@ -22,7 +24,8 @@ export const SongTile: React.FC<SongTileProps> = ({
                                                       title,
                                                       tag,
                                                       artist,
-                                                      displayMode
+                                                      displayMode,
+                                                      duration
                                                   }: SongTileProps): React.JSX.Element => {
     const subtitle = displayMode === 'tag' ? tag : artist;
 
@@ -35,10 +38,16 @@ export const SongTile: React.FC<SongTileProps> = ({
                 </div>
                 <div className="flex flex-col">
                     <h3 className="font-medium">{title}</h3>
-                    <p className="font-light text-white/70 text-sm capitalize">{subtitle}</p>
+                    <p className="font-light text-white/50 text-sm capitalize">{subtitle}</p>
                 </div>
             </div>
-            <IconWithCircle icon={MdPlayArrow} className="h-7 w-8" variant="sm"/>
+
+            <div className="flex flex-row gap-3 items-center">
+                {duration && (
+                    <span className="font-light text-white/50 text-sm">{formatDuration(duration)}</span>
+                )}
+                <IconWithCircle icon={MdPlayArrow} className="h-7 w-8" variant="sm"/>
+            </div>
         </div>
     )
 }

@@ -10,6 +10,7 @@ export type SongItem = {
     title: string;
     tag?: SongDomainModel.Tag;
     artist?: string;
+    duration?: number;
 }
 
 type SongListSectionProps = {
@@ -31,6 +32,7 @@ export const SongListSection: React.FC<SongListSectionProps> = ({
                     tag={song.tag}
                     artist={song.artist}
                     displayMode={displayMode}
+                    duration={song.duration}
                 />
             ))}
         </div>
