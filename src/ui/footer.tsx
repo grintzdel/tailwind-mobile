@@ -1,6 +1,9 @@
-import React from "react";
+'use client';
+
+import React, {useEffect, useState} from "react";
 
 import Link from "next/link";
+import {usePathname} from "next/navigation";
 
 import type {IconType} from "react-icons";
 import {TiHomeOutline} from "react-icons/ti";
@@ -19,12 +22,21 @@ const FooterLink: React.FC<FooterLinkProps> = ({icon: Icon, href, isActive}: Foo
         <li>
             <Link
                 href={href}
-                className={`
-                    relative cursor-pointer transition-all duration-300 block p-5
-                    ${isActive ? `rounded-full ${GRADIENT_BG.className}` : ''}
-                `}
-                style={isActive ? ACTIVE_NAV_ITEM.style : undefined}
+                className="relative cursor-pointer block p-5 rounded-full"
             >
+                <div
+                    className={`absolute inset-0 rounded-full ${GRADIENT_BG.className} transition-opacity duration-500 ease-in-out`}
+                    style={{
+                        opacity: isActive ? 1 : 0,
+                    }}
+                />
+                <div
+                    className="absolute inset-0 rounded-full transition-opacity duration-500 ease-in-out"
+                    style={{
+                        opacity: isActive ? 1 : 0,
+                        boxShadow: ACTIVE_NAV_ITEM.style.boxShadow,
+                    }}
+                />
                 <Icon className="relative z-10 text-white text-3xl"/>
             </Link>
         </li>
@@ -51,28 +63,31 @@ const FooterLinksList: React.FC<FooterLinksListProps> = ({children}: FooterLinks
     );
 };
 
-type FooterProps = {
-    activePage?: string;
-};
+export const Footer: React.FC = (): React.JSX.Element => {
+    const pathname = usePathname();
+    const [mounted, setMounted] = useState(false);
 
-export const Footer: React.FC<FooterProps> = ({activePage = 'home'}): React.JSX.Element => {
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
         <footer className="absolute bottom-5 w-full flex justify-center">
             <FooterLinksList>
                 <FooterLink
                     icon={TiHomeOutline}
                     href="/"
-                    isActive={activePage === 'home'}
+                    isActive={mounted && pathname === '/'}
                 />
                 <FooterLink
                     icon={CiMusicNote1}
                     href="/library"
-                    isActive={activePage === 'library'}
+                    isActive={mounted && pathname === '/library'}
                 />
                 <FooterLink
                     icon={CiSettings}
                     href="/settings"
-                    isActive={activePage === 'settings'}
+                    isActive={mounted && pathname === '/settings'}
                 />
             </FooterLinksList>
         </footer>
