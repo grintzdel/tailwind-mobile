@@ -24,9 +24,8 @@ export const Button: React.FC<ButtonProps> = ({
             <button
                 onClick={onClick}
                 className={`
-          flex flex-row gap-2 justify-center items-center
-          px-6 py-3
-          font-medium text-white text-lg
+          flex flex-row gap-1 justify-center items-center
+          font-light text-white/70 text-sm
           transition-all duration-300
           ${className}
         `}
