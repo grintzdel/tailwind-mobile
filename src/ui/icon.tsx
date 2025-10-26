@@ -13,7 +13,7 @@ export const IconWithCircle: React.FC<IconWithCircleProps> = ({
                                                               }: IconWithCircleProps): React.JSX.Element => {
     return (
         <div
-            className="group relative flex justify-center content-center items-center p-3 w-auto rounded-full bg-transparent backdrop-blur-sm">
+            className="group relative flex justify-center content-center items-center py-2 px-4 w-auto rounded-full bg-transparent backdrop-blur-sm">
             <div
                 className="absolute inset-0 rounded-full p-[1px] transition-opacity duration-300"
                 style={{
