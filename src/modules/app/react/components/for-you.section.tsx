@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import {ScrollableHorizontalContainer} from "@/modules/app/react/components/components/scrollable-horizontal-container";
+import {ScrollableHorizontalContainer} from "@/modules/shared/react/components/scrollable-horizontal-container";
 import {Card} from "@/ui/card";
 import {Section} from "@/ui/section";
 

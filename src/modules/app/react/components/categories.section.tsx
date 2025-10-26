@@ -3,7 +3,7 @@
 import React from "react";
 
 import {Button} from "@/ui/button";
-import {ScrollableHorizontalContainer} from "@/modules/app/react/components/components/scrollable-horizontal-container";
+import {ScrollableHorizontalContainer} from "@/modules/shared/react/components/scrollable-horizontal-container";
 import {Section} from "@/ui/section";
 
 const voidOnClick = (): void => {

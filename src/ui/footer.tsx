@@ -9,7 +9,7 @@ import type {IconType} from "react-icons";
 import {TiHomeOutline} from "react-icons/ti";
 import {CiMusicNote1, CiSettings} from "react-icons/ci";
 
-import {GLASS_EFFECT, ACTIVE_NAV_ITEM, GRADIENT_BG} from "@/modules/app/react/constants/style.constant";
+import {GLASS_EFFECT, ACTIVE_NAV_ITEM, GRADIENT_BG} from "@/modules/shared/constants/style.constant";
 
 type FooterLinkProps = {
     icon: IconType;

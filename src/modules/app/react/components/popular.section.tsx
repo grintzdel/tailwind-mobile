@@ -5,7 +5,7 @@ import React from "react";
 import {Section} from "@/ui/section";
 import {Button} from "@/ui/button";
 
-import {SongTile} from "@/modules/app/react/components/components/song-tile";
+import {SongTile} from "@/modules/song/react/components/song-tile";
 
 export const PopularSection: React.FC = (): React.JSX.Element => {
     return (

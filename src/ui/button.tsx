@@ -2,7 +2,7 @@ import React, {MouseEventHandler} from 'react';
 
 import {MdKeyboardArrowRight} from 'react-icons/md';
 
-import {GRADIENT_BG, GLASS_EFFECT} from '@/modules/app/react/constants/style.constant';
+import {GRADIENT_BG, GLASS_EFFECT} from '@/modules/shared/constants/style.constant';
 
 type ButtonVariants = 'primary' | 'secondary';
 

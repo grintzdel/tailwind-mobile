@@ -2,7 +2,7 @@ import React from "react";
 
 import {IconType} from "react-icons";
 
-import {GRADIENT_BG, GLASS_EFFECT} from '@/modules/app/react/constants/style.constant';
+import {GRADIENT_BG, GLASS_EFFECT} from '@/modules/shared/constants/style.constant';
 
 type IconWithCircleProps = {
     icon: IconType;
