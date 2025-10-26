@@ -15,10 +15,10 @@ export const PopularSection: React.FC = (): React.JSX.Element => {
             }}/>}
         >
             <div className="flex flex-col gap-3 px-5">
-                <SongTile img="/popular-1.jpg" title="Blinding Light" tag="Top Hit"/>
-                <SongTile img="/popular-2.jpg" title="Ocean Eyes" tag="Soft Vibe"/>
-                <SongTile img="/popular-3.jpg" title="Circle Run" tag="Fan Fav"/>
-                <SongTile img="/popular-1.jpg" title="Random Song" tag="Random Song"/>
+                <SongTile img="/popular-1.jpg" title="Blinding Light" tag="top hit"/>
+                <SongTile img="/popular-2.jpg" title="Ocean Eyes" tag="soft vibe"/>
+                <SongTile img="/popular-3.jpg" title="Circle Run" tag="fan fav"/>
+                <SongTile img="/popular-1.jpg" title="Random Song" tag="random song"/>
             </div>
         </Section>
     )
