@@ -4,6 +4,7 @@ import React from "react";
 
 import {FilterableSection, type FilterableItem} from "@/modules/shared/react/components/filterable-section";
 import {LibraryDomainModel} from "@/modules/library/core/model/library.domain-model";
+import {Section} from "@/ui/section";
 
 const LIBRARY_FILTERS: FilterableItem[] = [
     {value: 'all', label: 'All'},
@@ -20,12 +21,12 @@ export const LibraryFiltersSection: React.FC = (): React.JSX.Element => {
     };
 
     return (
-        <FilterableSection
-            title="Your Library"
-            titleSize="2xl"
-            items={LIBRARY_FILTERS}
-            activeItem={activeFilter}
-            onItemClick={handleFilterClick}
-        />
+        <Section title="Your Library" titleSize="2xl">
+            <FilterableSection
+                items={LIBRARY_FILTERS}
+                activeItem={activeFilter}
+                onItemClick={handleFilterClick}
+            />
+        </Section>
     );
 };

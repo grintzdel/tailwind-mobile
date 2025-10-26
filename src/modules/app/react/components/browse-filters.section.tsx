@@ -4,6 +4,7 @@ import React, {useState} from "react";
 
 import {FilterableSection, type FilterableItem} from "@/modules/shared/react/components/filterable-section";
 import {BrowseDomainModel} from "@/modules/browse/core/model/browse.domain-model";
+import {Section} from "@/ui/section";
 
 const BROWSE_CATEGORIES: FilterableItem[] = [
     {value: 'all', label: 'All'},
@@ -21,12 +22,12 @@ export const BrowseFiltersSection: React.FC = (): React.JSX.Element => {
     };
 
     return (
-        <FilterableSection
-            title="Hello, Alex"
-            titleSize="2xl"
-            items={BROWSE_CATEGORIES}
-            activeItem={activeCategory}
-            onItemClick={handleCategoryClick}
-        />
+        <Section title="Hello, Alex" titleSize="2xl">
+            <FilterableSection
+                items={BROWSE_CATEGORIES}
+                activeItem={activeCategory}
+                onItemClick={handleCategoryClick}
+            />
+        </Section>
     );
 }
