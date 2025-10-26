@@ -11,8 +11,8 @@ export const Header: React.FC = (): React.JSX.Element => {
         <header className="flex flex-row justify-between px-5 py-5">
             <Avatar src="/header-avatar.jpg"/>
             <div className="flex flex-row gap-2">
-                <IconWithCircle icon={CiSearch} className="h-4 w-4"/>
-                <IconWithCircle icon={IoMdNotificationsOutline} className="h-4 w-4"/>
+                <IconWithCircle icon={CiSearch} className="h-8 w-10"/>
+                <IconWithCircle icon={IoMdNotificationsOutline} className="h-8 w-10"/>
             </div>
         </header>
     )
