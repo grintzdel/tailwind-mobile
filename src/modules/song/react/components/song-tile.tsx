@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import {MdPlayArrow} from "react-icons/md";
 
-import {IconWithCircle} from "@/ui/icon";
+import {ButtonIcon} from "@/ui/button";
 import {SongDomainModel} from "@/modules/song/core/model/song.domain-model";
 import {formatDuration} from "@/modules/song/react/utils/duration.utils";
 
@@ -46,7 +46,7 @@ export const SongTile: React.FC<SongTileProps> = ({
                 {duration && (
                     <span className="font-light text-white/50 text-sm">{formatDuration(duration)}</span>
                 )}
-                <IconWithCircle icon={MdPlayArrow} className="h-7 w-8" variant="sm"/>
+                <ButtonIcon icon={MdPlayArrow} className="h-7 w-8" variant="sm"/>
             </div>
         </div>
     )

@@ -1,5 +1,6 @@
 import React, {MouseEventHandler} from 'react';
 
+import {IconType} from "react-icons";
 import {MdKeyboardArrowRight} from 'react-icons/md';
 
 import {GRADIENT_BG, GLASS_EFFECT} from '@/modules/shared/constants/style.constant';
@@ -96,3 +97,48 @@ export const Button: React.FC<ButtonProps> = ({
         </button>
     );
 };
+
+type IconWithCircleVariants = 'lg' | 'sm'
+
+type IconWithCircleProps = {
+    icon: IconType;
+    className?: string;
+    variant?: IconWithCircleVariants
+}
+
+export const ButtonIcon: React.FC<IconWithCircleProps> = ({
+                                                              icon: Icon,
+                                                              className,
+                                                              variant = 'lg'
+                                                          }: IconWithCircleProps): React.JSX.Element => {
+    const padding = variant === 'lg' ? 'p-4' : 'p-2';
+
+    return (
+        <div
+            className={`group relative flex justify-center content-center items-center ${padding} w-auto max-h-fit rounded-full ${GLASS_EFFECT.container}`}>
+            <div
+                className="absolute inset-0 rounded-full p-[1px] transition-opacity duration-300"
+                style={{
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.5) 100%)',
+                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskComposite: 'xor',
+                    maskComposite: 'exclude'
+                }}
+            />
+
+            <div
+                className={`absolute inset-0 rounded-full ${GRADIENT_BG.className} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+            />
+
+            <div
+                className="absolute inset-0 rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-300"
+                style={{
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%)',
+                    pointerEvents: 'none'
+                }}
+            />
+
+            <Icon width={38} height={32} className={`relative z-10 ${className}`}/>
+        </div>
+    )
+}
