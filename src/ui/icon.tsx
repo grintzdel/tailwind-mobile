@@ -2,6 +2,8 @@ import React from "react";
 
 import {IconType} from "react-icons";
 
+import {GRADIENT_BG, GLASS_EFFECT} from '@/modules/app/react/constants/style.constant';
+
 type IconWithCircleProps = {
     icon: IconType;
     className?: string;
@@ -13,7 +15,7 @@ export const IconWithCircle: React.FC<IconWithCircleProps> = ({
                                                               }: IconWithCircleProps): React.JSX.Element => {
     return (
         <div
-            className="group relative flex justify-center content-center items-center py-3 px-3 w-auto max-h-fit rounded-full bg-transparent backdrop-blur-sm">
+            className={`group relative flex justify-center content-center items-center py-3 px-3 w-auto max-h-fit rounded-full ${GLASS_EFFECT.container}`}>
             <div
                 className="absolute inset-0 rounded-full p-[1px] transition-opacity duration-300"
                 style={{
@@ -25,7 +27,7 @@ export const IconWithCircle: React.FC<IconWithCircleProps> = ({
             />
 
             <div
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-[#8031f0] to-[#c231ed] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className={`absolute inset-0 rounded-full ${GRADIENT_BG.className} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
             />
 
             <div

@@ -2,6 +2,8 @@ import React, {MouseEventHandler} from 'react';
 
 import {MdKeyboardArrowRight} from 'react-icons/md';
 
+import {GRADIENT_BG, GLASS_EFFECT} from '@/modules/app/react/constants/style.constant';
+
 type ButtonVariants = 'primary' | 'secondary';
 
 type ButtonProps = {
@@ -42,13 +44,13 @@ export const Button: React.FC<ButtonProps> = ({
             className={`
         group relative px-5 py-2 rounded-full max-w-fit
         font-medium text-white text-lg
-        transition-all duration-300 
-        ${isActive ? 'bg-gradient-to-br from-[#8031f0] to-[#c231ed]' : 'bg-transparent backdrop-blur-sm'}
+        transition-all duration-300
+        ${isActive ? GRADIENT_BG.className : GLASS_EFFECT.container}
         ${className}
       `}
             style={{
                 boxShadow: isActive
-                    ? '0 8px 32px rgba(130, 49, 240, 0.4)'
+                    ? GRADIENT_BG.shadow
                     : 'none'
             }}
         >
@@ -65,7 +67,7 @@ export const Button: React.FC<ButtonProps> = ({
                     />
 
                     <div
-                        className="absolute inset-0 rounded-full bg-gradient-to-br from-[#8031f0] to-[#c231ed] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        className={`absolute inset-0 rounded-full ${GRADIENT_BG.className} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                     />
 
                     <div
