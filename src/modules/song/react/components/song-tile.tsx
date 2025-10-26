@@ -24,7 +24,7 @@ export const SongTile: React.FC<SongTileProps> = ({img, title, tag}: SongTilePro
                 </div>
                 <div className="flex flex-col">
                     <h3 className="font-medium">{title}</h3>
-                    <p className="font-light text-white/70 text-sm">{tag}</p>
+                    <p className="font-light text-white/70 text-sm capitalize">{tag}</p>
                 </div>
             </div>
             <IconWithCircle icon={MdPlayArrow} className="h-7 w-8"/>

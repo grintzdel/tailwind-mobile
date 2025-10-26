@@ -1,3 +1,3 @@
 export namespace SongDomainModel {
-    export type Tag = 'Top Hit' | 'Soft Vibe' | 'Fan Fav' | 'Random Song';
+    export type Tag = 'top hit' | 'soft vibe' | 'fan fav' | 'random song';
 }
