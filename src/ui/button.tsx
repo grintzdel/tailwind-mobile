@@ -98,24 +98,29 @@ export const Button: React.FC<ButtonProps> = ({
     );
 };
 
-type IconWithCircleVariants = 'lg' | 'sm'
+type ButtonIconVariants = 'lg' | 'sm'
 
-type IconWithCircleProps = {
+type ButtonIconProps = {
     icon: IconType;
     className?: string;
-    variant?: IconWithCircleVariants
+    variant?: ButtonIconVariants;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
+    href?: string;
 }
 
-export const ButtonIcon: React.FC<IconWithCircleProps> = ({
-                                                              icon: Icon,
-                                                              className,
-                                                              variant = 'lg'
-                                                          }: IconWithCircleProps): React.JSX.Element => {
+export const ButtonIcon: React.FC<ButtonIconProps> = ({
+                                                          icon: Icon,
+                                                          className,
+                                                          variant = 'lg',
+                                                          onClick,
+                                                          href
+                                                      }: ButtonIconProps): React.JSX.Element => {
     const padding = variant === 'lg' ? 'p-4' : 'p-2';
 
-    return (
-        <div
-            className={`group relative flex justify-center content-center items-center ${padding} w-auto max-h-fit rounded-full ${GLASS_EFFECT.container}`}>
+    const commonClasses = `group relative flex justify-center content-center items-center ${padding} w-auto max-h-fit rounded-full ${GLASS_EFFECT.container} cursor-pointer`;
+
+    const content = (
+        <>
             <div
                 className="absolute inset-0 rounded-full p-[1px] transition-opacity duration-300"
                 style={{
@@ -139,6 +144,20 @@ export const ButtonIcon: React.FC<IconWithCircleProps> = ({
             />
 
             <Icon width={38} height={32} className={`relative z-10 ${className}`}/>
-        </div>
-    )
+        </>
+    );
+
+    if (href) {
+        return (
+            <a href={href} className={commonClasses}>
+                {content}
+            </a>
+        );
+    }
+
+    return (
+        <button onClick={onClick} className={commonClasses}>
+            {content}
+        </button>
+    );
 }
