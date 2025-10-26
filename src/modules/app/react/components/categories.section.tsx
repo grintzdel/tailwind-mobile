@@ -12,7 +12,7 @@ const voidOnClick = (): void => {
 
 export const CategoriesSection: React.FC = (): React.JSX.Element => {
     return (
-        <Section title="Hello, Alex" titleSize="3xl">
+        <Section title="Hello, Alex" titleSize="2xl">
             <ScrollableHorizontalContainer>
                 <Button text="All" onClick={voidOnClick} variant="primary"/>
                 <Button text="New Artist" onClick={voidOnClick} variant="primary"/>
