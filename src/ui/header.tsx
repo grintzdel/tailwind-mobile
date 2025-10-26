@@ -8,7 +8,7 @@ import {ButtonIcon} from "@/ui/button";
 
 export const Header: React.FC = (): React.JSX.Element => {
     return (
-        <header className="flex flex-row justify-between px-5 py-5">
+        <header className="flex flex-row justify-between p-5">
             <Avatar src="/header-avatar.jpg"/>
             <div className="flex flex-row gap-2">
                 <ButtonIcon icon={CiSearch} className="h-7 w-8"/>
