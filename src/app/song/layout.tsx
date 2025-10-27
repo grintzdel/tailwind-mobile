@@ -1,6 +1,7 @@
 import React from "react";
 
 import {SongHeader} from "@/modules/song/react/layout/song-header";
+import {SongFooter} from "@/modules/song/react/layout/song-footer";
 
 export default function SongLayout({children}: { children: React.ReactNode }) {
     return (
@@ -14,6 +15,7 @@ export default function SongLayout({children}: { children: React.ReactNode }) {
             <main className="max-h-dvh">
                 {children}
             </main>
+            <SongFooter/>
         </div>
     );
 }
