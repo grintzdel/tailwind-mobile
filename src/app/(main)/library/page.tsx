@@ -1,7 +1,5 @@
-import LibraryPage from "@/features/library/library.page";
+import LibraryPage from '@/features/library/library.page'
 
 export default function Library() {
-    return (
-        <LibraryPage/>
-    )
+  return <LibraryPage />
 }

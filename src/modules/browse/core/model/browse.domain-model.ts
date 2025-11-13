@@ -1,3 +1,3 @@
 export namespace BrowseDomainModel {
-    export type Filter = 'all' | 'new artist' | 'hot tracks' | 'editor\'s picks' | 'random';
+  export type Filter = 'all' | 'new artist' | 'hot tracks' | "editor's picks" | 'random'
 }

@@ -1,9 +1,5 @@
-import React from "react";
+import React from 'react'
 
 export default function SongPlayPage() {
-    return (
-        <React.Fragment>
-
-        </React.Fragment>
-    )
+  return <React.Fragment></React.Fragment>
 }
