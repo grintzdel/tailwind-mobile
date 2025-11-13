@@ -8,5 +8,7 @@ export namespace SongDomainModel {
     tag: Tag
   }
 
+  export type CreateSongDto = SongOverviewDto
+
   export type Tag = 'top hit' | 'soft vibe' | 'fan fav' | 'random song'
 }
