@@ -1,6 +1,7 @@
 import { ApiService } from './service/api.service'
 import { Dependencies } from './store/dependencies'
 import { HttpSong } from '@/modules/song/core/adapters/http.song'
+import { HttpAuth } from '@/modules/auth/core/adapters/http.auth'
 
 export class App {
   private static instance: App
@@ -16,6 +17,7 @@ export class App {
 
     this.dependencies = {
       songGateway: new HttpSong(this.api),
+      authGateway: new HttpAuth(this.api),
     }
   }
 
