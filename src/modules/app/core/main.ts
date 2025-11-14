@@ -6,11 +6,13 @@ import { HttpUser } from '@/modules/user/core/adapters/http.user'
 import { HttpTag } from '@/modules/tag/core/adapters/http.tag'
 import { HttpCategory } from '@/modules/category/core/adapters/http.category'
 import { HttpAlbum } from '@/modules/album/core/adapters/http.album'
+import { AppStore, createStore } from '@/modules/app/core/store/store'
 
 export class App {
   private static instance: App
   public readonly api: ApiService
   public readonly dependencies: Dependencies
+  public readonly store: AppStore
 
   private constructor() {
     this.api = new ApiService()
@@ -27,6 +29,8 @@ export class App {
       categoryGateway: new HttpCategory(this.api),
       albumGateway: new HttpAlbum(this.api),
     }
+
+    this.store = createStore({ dependencies: this.dependencies })
   }
 
   public static getInstance(): App {

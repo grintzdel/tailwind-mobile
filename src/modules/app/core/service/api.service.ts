@@ -84,6 +84,19 @@ export class ApiService {
     return Date.now() >= parseInt(expiration, 10)
   }
 
+  public getUserIdFromToken(): string | null {
+    if (!this.token) return null
+
+    try {
+      const payload = this.token.split('.')[1]
+      const decoded = JSON.parse(atob(payload))
+      return decoded.userId || null
+    } catch (error) {
+      console.warn('Failed to decode token:', error)
+      return null
+    }
+  }
+
   public async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
     const response: AxiosResponse<T> = await this.axiosInstance.get(url, config)
     return response.data
