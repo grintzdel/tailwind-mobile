@@ -8,6 +8,8 @@ export interface IUserGateway {
 
   getById(id: string): Promise<UserDomainModel.User>
 
+  getByEmail(email: string): Promise<UserDomainModel.User>
+
   /*
   Commands
    */

@@ -25,6 +25,18 @@ export class HttpUser implements IUserGateway {
     }
   }
 
+  async getByEmail(email: string): Promise<UserDomainModel.User> {
+    try {
+      const res = await this.api.get<{ data: UserDomainModel.User }>(`/api/users/users/email/${email}`)
+
+      return res.data
+    } catch (error) {
+      throw new Error(
+        `Failed to get user with email ${email}: ${error instanceof Error ? error.message : String(error)}`
+      )
+    }
+  }
+
   async create(payload: UserDomainModel.CreateUserPayload): Promise<UserDomainModel.User> {
     try {
       const res = await this.api.post<{ data: UserDomainModel.User }>('/api/users', payload)

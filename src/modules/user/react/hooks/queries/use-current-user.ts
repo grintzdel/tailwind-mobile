@@ -3,17 +3,17 @@ import { UserDomainModel } from '@/modules/user/core/model/user.domain-model'
 import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 
 export function useCurrentUser(): UseQueryResult<UserDomainModel.User, Error> {
-  const userId = app.api.getUserIdFromToken()
+  const username = app.api.getUsernameFromToken()
 
   return useQuery<UserDomainModel.User>({
-    queryKey: ['currentUser', userId],
+    queryKey: ['currentUser', username],
     queryFn: async (): Promise<UserDomainModel.User> => {
-      if (!userId) {
-        throw new Error('No user ID found in token')
+      if (!username) {
+        throw new Error('No username found in token')
       }
-      const data = await app.dependencies.userGateway.getById(userId)
+      const data = await app.dependencies.userGateway.getByEmail(username)
       return data
     },
-    enabled: !!userId,
+    enabled: !!username,
   })
 }
