@@ -1,10 +1,10 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, type UseMutationResult } from '@tanstack/react-query'
 import { app } from '@/modules/app/core/main'
 
-export const useLogout = () => {
-  return useMutation({
-    mutationFn: async () => {
-      return app.dependencies.authGateway.logout()
+export function useLogout(): UseMutationResult<void, Error, void> {
+  return useMutation<void, Error, void>({
+    mutationFn: async (): Promise<void> => {
+      await app.dependencies.authGateway.logout()
     },
   })
 }
