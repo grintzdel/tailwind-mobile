@@ -5,6 +5,7 @@ import { HttpAuth } from '@/modules/auth/core/adapters/http.auth'
 import { HttpUser } from '@/modules/user/core/adapters/http.user'
 import { HttpTag } from '@/modules/tag/core/adapters/http.tag'
 import { HttpCategory } from '@/modules/category/core/adapters/http.category'
+import { HttpAlbum } from '@/modules/album/core/adapters/http.album'
 
 export class App {
   private static instance: App
@@ -24,6 +25,7 @@ export class App {
       userGateway: new HttpUser(this.api),
       tagGateway: new HttpTag(this.api),
       categoryGateway: new HttpCategory(this.api),
+      albumGateway: new HttpAlbum(this.api),
     }
   }
 
