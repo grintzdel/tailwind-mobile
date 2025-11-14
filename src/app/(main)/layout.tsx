@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Header } from '@/ui/header'
+import { HeaderLayout } from '@/features/layout/header.layout'
 import { Footer } from '@/ui/footer'
 
 export default function MainLayout({
@@ -16,7 +16,7 @@ export default function MainLayout({
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <Header />
+      <HeaderLayout />
       <main className="flex flex-col gap-4">{children}</main>
       <Footer />
     </div>
