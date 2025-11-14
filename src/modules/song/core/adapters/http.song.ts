@@ -7,7 +7,7 @@ export class HttpSong implements ISongGateway {
 
   async getAll(): Promise<SongDomainModel.Song[]> {
     try {
-      const res = await this.api.get<SongDomainModel.Song[]>('/api/songs/songs')
+      const res = await this.api.get<SongDomainModel.Song[]>('/api/songs')
 
       return res
     } catch (error) {
@@ -17,7 +17,7 @@ export class HttpSong implements ISongGateway {
 
   async getById(id: string): Promise<SongDomainModel.Song> {
     try {
-      const res = await this.api.get<SongDomainModel.Song>(`/api/songs/songs/${id}`)
+      const res = await this.api.get<SongDomainModel.Song>(`/api/songs/${id}`)
 
       return res
     } catch (error) {
@@ -27,7 +27,7 @@ export class HttpSong implements ISongGateway {
 
   async getByTag(tagId: string): Promise<SongDomainModel.Song[]> {
     try {
-      const res = await this.api.get<SongDomainModel.Song[]>(`/api/songs/songs/tag/${tagId}`)
+      const res = await this.api.get<SongDomainModel.Song[]>(`/api/songs/tag/${tagId}`)
 
       return res
     } catch (error) {
@@ -37,7 +37,7 @@ export class HttpSong implements ISongGateway {
 
   async getByCategory(categoryId: string): Promise<SongDomainModel.Song[]> {
     try {
-      const res = await this.api.get<SongDomainModel.Song[]>(`/api/songs/songs/category/${categoryId}`)
+      const res = await this.api.get<SongDomainModel.Song[]>(`/api/songs/category/${categoryId}`)
 
       return res
     } catch (error) {
@@ -49,7 +49,7 @@ export class HttpSong implements ISongGateway {
 
   async getByAlbum(albumId: string): Promise<SongDomainModel.Song[]> {
     try {
-      const res = await this.api.get<SongDomainModel.Song[]>(`/api/songs/songs/album/${albumId}`)
+      const res = await this.api.get<SongDomainModel.Song[]>(`/api/songs/album/${albumId}`)
 
       return res
     } catch (error) {
@@ -61,7 +61,7 @@ export class HttpSong implements ISongGateway {
 
   async create(payload: SongDomainModel.CreateSongPayload): Promise<SongDomainModel.Song> {
     try {
-      const res = await this.api.post<SongDomainModel.Song>('/api/songs/songs', payload)
+      const res = await this.api.post<SongDomainModel.Song>('/api/songs', payload)
 
       return res
     } catch (error) {
@@ -73,7 +73,7 @@ export class HttpSong implements ISongGateway {
 
   async update(id: string, payload: SongDomainModel.UpdateSongPayload): Promise<SongDomainModel.Song> {
     try {
-      const res = await this.api.put<SongDomainModel.Song>(`/api/songs/songs/${id}`, payload)
+      const res = await this.api.put<SongDomainModel.Song>(`/api/songs/${id}`, payload)
 
       return res
     } catch (error) {
@@ -83,7 +83,7 @@ export class HttpSong implements ISongGateway {
 
   async delete(id: string): Promise<void> {
     try {
-      await this.api.delete<void>(`/api/songs/songs/${id}`)
+      await this.api.delete<void>(`/api/songs/${id}`)
     } catch (error) {
       throw new Error(`Failed to delete song with id ${id}: ${error instanceof Error ? error.message : String(error)}`)
     }
