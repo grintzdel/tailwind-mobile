@@ -17,9 +17,5 @@ export namespace AlbumDomainModel {
     coverImage?: Nullable<string>
   }
 
-  export type UpdateAlbumPayload = {
-    name?: string
-    categoryId?: Nullable<string>
-    coverImage?: Nullable<string>
-  }
+  export type UpdateAlbumPayload = Partial<Exclude<CreateAlbumPayload, 'artistId'>>
 }

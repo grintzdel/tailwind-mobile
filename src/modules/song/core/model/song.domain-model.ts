@@ -1,32 +1,26 @@
 export namespace SongDomainModel {
-  export interface Song {
+  export type Song = {
     id: string
     artistId: string
     name: string
     categoryId: string
-    tagId: string | null
+    tagId: Nullable<string>
     duration: number
-    coverImage: string | null
+    coverImage: Nullable<string>
     durationFormatted: string
     createdAt: string
     updatedAt: string
-    deletedAt: string | null
+    deletedAt: Nullable<string>
   }
 
-  export interface CreateSongPayload {
+  export type CreateSongPayload = {
     artistId: string
     name: string
     categoryId: string
-    tagId?: string | null
+    tagId?: Nullable<string>
     duration: number
-    coverImage?: string | null
+    coverImage?: Nullable<string>
   }
 
-  export interface UpdateSongPayload {
-    name?: string
-    categoryId?: string
-    tagId?: string | null
-    duration?: number
-    coverImage?: string | null
-  }
+  export type UpdateSongPayload = Partial<Exclude<CreateSongPayload, 'aristId'>>
 }
