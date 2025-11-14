@@ -18,7 +18,13 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isPending,
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
+    <div
+      className="flex min-h-screen items-center justify-center p-4"
+      style={{
+        background: 'linear-gradient(180deg, #662d99 0%, #241a33 45%, #141318 100%)',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-white">Inscription</h2>
