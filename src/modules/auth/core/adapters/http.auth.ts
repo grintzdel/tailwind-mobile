@@ -7,12 +7,9 @@ export class HttpAuth implements IAuthGateway {
 
   async login(credentials: AuthDomainModel.LoginCredentials): Promise<AuthDomainModel.TokenResponse> {
     try {
-      const res = await this.api.post<{ data: AuthDomainModel.TokenResponse }>('/api/auth/login', credentials)
+      const res = await this.api.post<AuthDomainModel.TokenResponse>('/api/auth/login', credentials)
 
-      const tokenData = res.data
-      this.api.setToken(tokenData.token, tokenData.expiresIn)
-
-      return tokenData
+      return res
     } catch (error) {
       throw new Error(
         `Failed to login with email ${credentials.email}: ${error instanceof Error ? error.message : String(error)}`
@@ -22,12 +19,9 @@ export class HttpAuth implements IAuthGateway {
 
   async register(credentials: AuthDomainModel.RegisterCredentials): Promise<AuthDomainModel.TokenResponse> {
     try {
-      const res = await this.api.post<{ data: AuthDomainModel.TokenResponse }>('/api/auth/register', credentials)
+      const res = await this.api.post<AuthDomainModel.TokenResponse>('/api/auth/register', credentials)
 
-      const tokenData = res.data
-      this.api.setToken(tokenData.token, tokenData.expiresIn)
-
-      return tokenData
+      return res
     } catch (error) {
       throw new Error(
         `Failed to register with email ${credentials.email}: ${error instanceof Error ? error.message : String(error)}`
