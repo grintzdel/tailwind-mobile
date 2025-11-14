@@ -1,15 +1,9 @@
 import React from 'react'
 
-import { SongTile } from '@/modules/song/react/components/song-tile'
+import { type DisplayMode, SongTile } from '@/modules/song/react/components/song-tile'
 import { SongDomainModel } from '@/modules/song/core/model/song.domain-model'
 
-type DisplayMode = 'tag' | 'artist'
-
-export type SongListItem = Pick<SongDomainModel.SongOverviewDto, 'id' | 'img' | 'title'> & {
-  duration?: number
-  tag?: SongDomainModel.Tag
-  artist?: string
-}
+export type SongListItem = SongDomainModel.SongOverviewDto
 
 type SongListSectionProps = {
   songs: SongListItem[]

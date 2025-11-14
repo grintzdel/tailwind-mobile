@@ -8,7 +8,7 @@ import { ButtonIcon } from '@/ui/button'
 import { formatDuration } from '@/modules/song/react/utils/duration.utils'
 import { SongListItem } from '@/modules/shared/react/components/song-list-section'
 
-type DisplayMode = 'tag' | 'artist'
+export type DisplayMode = 'tag' | 'artist'
 
 type SongTileProps = SongListItem & {
   displayMode: DisplayMode

@@ -13,6 +13,17 @@ export namespace SongDomainModel {
     deletedAt: Nullable<string>
   }
 
+  export type Tag = string
+
+  export type SongOverviewDto = {
+    id: string
+    img: string
+    title: string
+    duration?: number
+    tag?: Tag
+    artist?: string
+  }
+
   export type CreateSongPayload = {
     artistId: string
     name: string
