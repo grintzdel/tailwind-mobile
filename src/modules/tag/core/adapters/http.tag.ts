@@ -7,7 +7,7 @@ export class HttpTag implements ITagGateway {
 
   async getAll(): Promise<TagDomainModel.Tag[]> {
     try {
-      const res = await this.api.get<TagDomainModel.Tag[]>('/api/tags')
+      const res = await this.api.get<TagDomainModel.Tag[]>('/api/tags/tags')
       return res
     } catch (error) {
       throw new Error(`Failed to get all tags: ${error instanceof Error ? error.message : String(error)}`)
@@ -16,7 +16,7 @@ export class HttpTag implements ITagGateway {
 
   async getById(id: string): Promise<TagDomainModel.Tag> {
     try {
-      const res = await this.api.get<TagDomainModel.Tag>(`/api/tags/${id}`)
+      const res = await this.api.get<TagDomainModel.Tag>(`/api/tags/tags/${id}`)
       return res
     } catch (error) {
       throw new Error(`Failed to get tag with id ${id}: ${error instanceof Error ? error.message : String(error)}`)
@@ -25,7 +25,7 @@ export class HttpTag implements ITagGateway {
 
   async create(payload: TagDomainModel.CreateTagPayload): Promise<TagDomainModel.Tag> {
     try {
-      const res = await this.api.post<TagDomainModel.Tag>('/api/tags', payload)
+      const res = await this.api.post<TagDomainModel.Tag>('/api/tags/tags', payload)
       return res
     } catch (error) {
       throw new Error(
@@ -36,7 +36,7 @@ export class HttpTag implements ITagGateway {
 
   async update(id: string, payload: TagDomainModel.UpdateTagPayload): Promise<TagDomainModel.Tag> {
     try {
-      const res = await this.api.put<TagDomainModel.Tag>(`/api/tags/${id}`, payload)
+      const res = await this.api.put<TagDomainModel.Tag>(`/api/tags/tags/${id}`, payload)
       return res
     } catch (error) {
       throw new Error(`Failed to update tag with id ${id}: ${error instanceof Error ? error.message : String(error)}`)
@@ -45,7 +45,7 @@ export class HttpTag implements ITagGateway {
 
   async delete(id: string): Promise<void> {
     try {
-      await this.api.delete<void>(`/api/tags/${id}`)
+      await this.api.delete<void>(`/api/tags/tags/${id}`)
     } catch (error) {
       throw new Error(`Failed to delete tag with id ${id}: ${error instanceof Error ? error.message : String(error)}`)
     }
