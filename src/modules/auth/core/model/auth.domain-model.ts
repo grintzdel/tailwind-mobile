@@ -1,17 +1,18 @@
+import { UserDomainModel } from '@/modules/user/core/model/user.domain-model'
+
 export namespace AuthDomainModel {
-  export interface TokenResponse {
+  export type TokenResponse = {
     token: string
     expiresIn: number
   }
 
-  export interface LoginCredentials {
+  export type LoginCredentials = {
     email: string
     password: string
   }
 
-  export interface RegisterCredentials {
+  export type RegisterCredentials = LoginCredentials & {
     name: string
-    email: string
-    password: string
+    role?: Extract<UserDomainModel.Role, 'ROLE_USER' | 'ROLE_ARTIST'>
   }
 }
