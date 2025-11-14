@@ -1,5 +1,3 @@
-import { Nullable } from '@/types/app.type'
-
 export namespace AlbumDomainModel {
   export type Album = {
     id: string
