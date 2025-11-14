@@ -1,14 +1,32 @@
 export namespace SongDomainModel {
-  export type SongOverviewDto = {
+  export interface Song {
     id: string
-    title: string
-    artist: string
+    artistId: string
+    name: string
+    categoryId: string
+    tagId: string | null
     duration: number
-    img: string
-    tag: Tag
+    coverImage: string | null
+    durationFormatted: string
+    createdAt: string
+    updatedAt: string
+    deletedAt: string | null
   }
 
-  export type CreateSongDto = SongOverviewDto
+  export interface CreateSongPayload {
+    artistId: string
+    name: string
+    categoryId: string
+    tagId?: string | null
+    duration: number
+    coverImage?: string | null
+  }
 
-  export type Tag = 'top hit' | 'soft vibe' | 'fan fav' | 'random song'
+  export interface UpdateSongPayload {
+    name?: string
+    categoryId?: string
+    tagId?: string | null
+    duration?: number
+    coverImage?: string | null
+  }
 }
