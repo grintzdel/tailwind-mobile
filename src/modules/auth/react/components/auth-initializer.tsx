@@ -8,7 +8,7 @@ import React, { useEffect } from 'react'
 
 export const AuthInitializer: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const dispatch = useAppDispatch()
-  const { data: user, refetch } = useCurrentUser()
+  const { refetch } = useCurrentUser()
 
   useEffect(() => {
     const initAuth = async () => {
@@ -16,9 +16,13 @@ export const AuthInitializer: React.FC<{ children: React.ReactNode }> = ({ child
       const isExpired = app.api.isTokenExpired()
 
       if (token && !isExpired) {
-        const { data: currentUser } = await refetch()
-        if (currentUser) {
-          dispatch(setUser(currentUser))
+        try {
+          const { data: currentUser } = await refetch()
+          if (currentUser) {
+            dispatch(setUser(currentUser))
+          }
+        } catch (error) {
+          console.error('AuthInitializer - Error fetching user:', error)
         }
       }
     }
